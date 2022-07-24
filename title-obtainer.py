@@ -129,6 +129,12 @@ class MainScreen(FloatLayout):
         else:
             print("The selected window was not found")
             self.previousTitle = ""
+            MainScreen.udpdateSongName("No window was detected, please, try again")
+            self.scanning.cancel()
+            self.startButton.disabled = False
+            self.stopButton.disabled = True
+            
+            
 
     def stop(self, obj):
         self.clearSongName()
@@ -185,7 +191,7 @@ class MainScreen(FloatLayout):
     def clearSongName(self):
         with open("song.txt", "w") as file:
             file.write("")
-        MainScreen.udpdateSongName("")   
+        MainScreen.udpdateSongName("No song detected")   
 
     
 
