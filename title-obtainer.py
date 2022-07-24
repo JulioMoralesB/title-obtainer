@@ -73,8 +73,10 @@ def getWindowHandle(processName):
 def writeSongName(songName):
     text = u"\u266b " + songName + "                " 
     print(text)
+    
     with open("song.txt", "wb") as file:
         file.write(text.encode("utf8"))
+
     global currentSong
     currentSong.text = songName
     
